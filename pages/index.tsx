@@ -10,7 +10,6 @@ const Home: NextPage = () => {
         <title>Home - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      Let's Build Netflix
       <Header />
       <main>
         {/* Banner */}
