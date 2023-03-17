@@ -33,4 +33,8 @@
         background: rgb(20,20,20);
         background: linear-gradient(180deg, rgba(20,20,20,0.8) 40%, rgba(0,255,255,0) 100%);
     }
+
+    .modalButton {
+        @apply flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-white hover:bg-white/10;
+    }
 }
