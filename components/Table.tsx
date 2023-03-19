@@ -1,4 +1,4 @@
-import { CheckIcon } from '@heroicons/react/outline'
+import { CheckIcon, XIcon } from '@heroicons/react/outline'
 import { Product } from '@stripe/firestore-stripe-payments'
 
 interface Props {
@@ -20,7 +20,7 @@ function Table({ products, selectedPlan }: Props) {
                                 }`}
                             key={product.id}
                         >
-                            AED{product.prices[0].unit_amount! / 100}
+                            CAD${product.prices[0].unit_amount! / 100}
                         </td>
                     ))}
                 </tr>
@@ -64,8 +64,10 @@ function Table({ products, selectedPlan }: Props) {
                                 }`}
                             key={product.id}
                         >
-                            {product.metadata.portability === 'true' && (
+                            {product.metadata.portability === 'true' ? (
                                 <CheckIcon className="inline-block h-8 w-8" />
+                            ) : (
+                                <XIcon className="inline-block h-8 w-8" />
                             )}
                         </td>
                     ))}
