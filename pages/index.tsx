@@ -34,7 +34,6 @@ const Home = ({ netflixOriginals,
   trendingNow,
   products,
 }: Props) => {
-  console.log(products)
   const { loading } = useAuth()
   const showModal = useRecoilValue(modalState)
   const subscription = false
@@ -42,7 +41,7 @@ const Home = ({ netflixOriginals,
   if (loading || subscription === null) return null
 
   if (!subscription) return (
-    <Plans />
+    <Plans products={products} />
   )
 
   return (
