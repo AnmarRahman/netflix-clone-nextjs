@@ -80,19 +80,25 @@ function Plans({ products }: Props) {
                     </div>
 
                     <Table products={products} selectedPlan={selectedPlan} />
+                    <div className="flex items-center justify-center flex-col gap-y-4">
+                        <button
+                            disabled={!selectedPlan || isBillingLoading}
+                            className={`w-11/12 rounded bg-[#e50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${isBillingLoading && 'opacity-60'
+                                }`}
+                            onClick={subscribeToPlan}
+                        >
+                            {isBillingLoading ? (
+                                <Loader color="dark:fill-gray-300" />
+                            ) : (
+                                'Subscribe'
+                            )}
+                        </button>
 
-                    <button
-                        disabled={!selectedPlan || isBillingLoading}
-                        className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${isBillingLoading && 'opacity-60'
-                            }`}
-                        onClick={subscribeToPlan}
-                    >
-                        {isBillingLoading ? (
-                            <Loader color="dark:fill-gray-300" />
-                        ) : (
-                            'Subscribe'
-                        )}
-                    </button>
+                        <div className="rounded bg-[#e50914] p-4 text-md md:w-[420px] w-11/12">
+                            When checking out, use card number<br></br> 4242 4242 4242 4242 with an expiry date and security code of your choice. Name on card and address can be anything as well.
+                        </div>
+                    </div>
+
                 </div>
             </main>
         </div>
