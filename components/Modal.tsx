@@ -30,6 +30,7 @@ function Modal() {
     const [trailer, setTrailer] = useState('')
     const [showModal, setShowModal] = useRecoilState(modalState)
     const [muted, setMuted] = useState(false)
+    const [liked, setLiked] = useState(false)
     const [genres, setGenres] = useState<Genre[]>([])
     const [addedToList, setAddedToList] = useState(false)
     const { user } = useAuth()
@@ -163,8 +164,8 @@ function Modal() {
                                     <PlusIcon className="h-7 w-7" />
                                 )}
                             </button>
-                            <button className="modalButton">
-                                <ThumbUpIcon className="h-6 w-6" />
+                            <button className={`modalButton ${liked && 'bg-green-600 hover:bg-green-600'}`} onClick={() => setLiked(!liked)}>
+                                <ThumbUpIcon className="h-6 w-6 " />
                             </button>
                         </div>
                         <button className="modalButton" onClick={() => setMuted(!muted)}>
