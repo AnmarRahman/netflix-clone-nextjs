@@ -164,9 +164,16 @@ function Modal() {
                                     <PlusIcon className="h-7 w-7" />
                                 )}
                             </button>
-                            <button className={`modalButton ${liked && 'bg-green-600 hover:bg-green-600'}`} onClick={() => setLiked(!liked)}>
-                                <ThumbUpIcon className="h-6 w-6 " />
-                            </button>
+                            {liked ? (
+                                <button className={'modalButton bg-green-600 hover:bg-green-600'} onClick={() => setLiked(!liked)}>
+                                    <ThumbUpIcon className="h-6 w-6 " />
+                                </button>
+                            ) : (
+                                <button className={'modalButton'} onClick={() => setLiked(!liked)}>
+                                    <ThumbUpIcon className="h-6 w-6 " />
+                                </button>
+                            )}
+
                         </div>
                         <button className="modalButton" onClick={() => setMuted(!muted)}>
                             {muted ? (
