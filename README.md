@@ -1,27 +1,60 @@
-# Next.js + Tailwind CSS Example
+# Netflix Clone 🎬
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is a Netflix clone website built with **Next.js** and styled with **Tailwind CSS**. It features a user-friendly interface for browsing and viewing movies, as well as a subscription model using **Stripe** in test mode to mimic Netflix's subscription system.
 
-## Deploy your own
+## Features ✨
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- **Browse Movies and TV Shows**: Explore a variety of content categories, just like on Netflix.
+- **Movie Details**: Click on any movie to view its description, release date, and other details.
+- **Subscription Model**: Users can subscribe to access premium content, with Stripe used for handling payments in test mode.
+- **Responsive Design**: Optimized for desktop and mobile viewing.
+- **User Authentication**: Secure authentication system (optional).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Tech Stack 🛠️
 
-## How to use
+- **Next.js** - For server-side rendering, fast routing, and optimized performance.
+- **Tailwind CSS** - For responsive and modern styling.
+- **Stripe API** - Used in test mode for handling subscription payments.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Getting Started 🚀
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+Follow these instructions to set up the project locally.
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### Prerequisites
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+- [Node.js](https://nodejs.org/) and npm.
+- **Stripe Account** - Sign up at [Stripe](https://stripe.com/) and get API keys from the dashboard (set to test mode).
+- **Firebase Project** - Create a project in [Firebase Console](https://console.firebase.google.com/) and set up your web app to get your Firebase configuration.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/netflix-clone.git
+   cd netflix-clone
+2. **Install dependencies:**
+   ```bash
+   npm install
+3. ** Configure environment variables:**
+- Create a .env.local file in the root directory.
+- Add your API keys as environment variables:
+  ```bash
+  NEXT_PUBLIC_API_KEY = your-next-api-key
+  ```
+- Then replace these variables in the firebase.ts file :
+  ```bash
+  const firebaseConfig = {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+  };
+  ```
+4. **Run the development server:**
+  ```bash
+  npm run dev
+  ```
+Open http://localhost:3000 to view the project in your browser.
