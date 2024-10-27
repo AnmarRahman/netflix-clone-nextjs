@@ -1,8 +1,3 @@
-import { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
-import { modalState, movieState } from '../atoms/modalAtom'
-import ReactPlayer from 'react-player/lazy'
-import { FaPlay } from 'react-icons/fa'
 import {
     CheckIcon,
     PlusIcon,
@@ -11,7 +6,6 @@ import {
     VolumeUpIcon,
     XIcon,
 } from '@heroicons/react/outline'
-import { Element, Genre, Movie } from '../typings'
 import MuiModal from '@mui/material/Modal'
 import {
     collection,
@@ -21,9 +15,15 @@ import {
     onSnapshot,
     setDoc,
 } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
+import { FaPlay } from 'react-icons/fa'
+import ReactPlayer from 'react-player/lazy'
+import { useRecoilState } from 'recoil'
+import { modalState, movieState } from '../atoms/modalAtom'
 import { db } from '../firebase'
 import useAuth from '../hooks/useAuth'
-import toast, { Toaster } from 'react-hot-toast'
+import { Element, Genre, Movie } from '../typings'
 
 function Modal() {
     const [movie, setMovie] = useRecoilState(movieState)
@@ -188,7 +188,7 @@ function Modal() {
                     <div className="space-y-6 text-lg">
                         <div className="flex items-center space-x-2 text-sm">
                             <p className="font-semibold text-green-400">
-                                {movie!.vote_average * 10}% Match
+                                {Number((movie!.vote_average * 10).toFixed(2))}% Match
                             </p>
                             <p className="font-light">
                                 {movie?.release_date || movie?.first_air_date}
